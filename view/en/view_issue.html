@@ -1,0 +1,46 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<h1>Зміст <?php echo $tpl->get('issue_number');?></h1>
+
+
+<?php $content = $tpl->get('content'); ?>
+<?php foreach ($content as $item) { ?>
+	
+	<?php if (($item instanceof \mer\domain\Section) && ($item->get('level') == 1))  { ?>
+		<h2><?php echo $item->get('caption_en'); ?></a></h2>
+	<?php } ?>
+	
+	<?php if (($item instanceof \mer\domain\Section) && ($item->get('level') == 2))  { ?>
+		<h3><?php echo $item->get('caption_en'); ?></a></h3>
+	<?php } ?>
+	
+	<?php if ($item instanceof \mer\domain\Article)  { ?>
+		<p>
+			<strong><em>
+				<?php echo $item->get('authors_en'); ?>
+			</em></strong><br />
+			<strong>
+				<span class="caption"><?php echo $item->get('caption_en'); ?></span>
+			</strong><br />
+			<em>
+				<?php echo $tpl->get('original_language_' . $item->get('language')); ?>
+			</em>
+		</p>
+		<p style="font-size: 8pt;">
+			<a href="?cmd=view_article&article_id=<?php echo $item->get('id');?>&issue_id=<?php echo $item->get('issue_id'); ?> ">Details</a>
+			
+			<?php if ($tpl->get('access')) { ?>
+				|
+				<a href="<?php echo $item->get('link'); ?>"  target="_blank">Original text</a> 
+						
+				<?php if ($item->get('link_en')) { ?>	
+					| <a href="<?php echo $item->get('link_en'); ?>" target="_blank">Translated into English version</a>
+				<?php } ?>
+			<?php } ?>
+			
+		</p>
+	<?php } ?>
+
+<?php } ?>
+
+

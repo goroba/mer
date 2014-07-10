@@ -1,0 +1,269 @@
+body {	font-size: 12pt;
+	font-family: "Times New Roman",serif,Verdana,Helvetica,Arial
+	padding: 5em;
+	border-width: 3em;
+	width:90%;
+	margin-top: 10pt;
+	background-color: rgb(231,239,244);
+	margin-left: 4pt;
+}
+
+h1 { 	font-family: "Verdana","Arial",verdana; 
+	font-size: 15pt; 
+	font-weight: bold;
+	font-style: small-caps;
+	text-align: left;
+	margin-top: 25pt; 
+	color: rgb(0,33,115);
+	margin-bottom: 15pt;
+	margin-left: 5pt;		
+}
+
+h2 { 	font-family: "Verdana","Arial",verdana; 
+	font-size: 12pt; 
+	font-weight: bold;
+	font-style: small-caps;
+	text-align: left;
+	color: rgb(0,33,115);
+	margin-top: 5pt; 
+	margin-left: 5pt;	
+}
+
+h3 {
+	color: rgb(0,33,115);
+	margin-top: 5pt; 
+	margin-left: 5pt;	
+}
+
+p {	font: 10pt Verdana,Helvetica,Arial,"Times New Roman",serif;
+	text-align: justify;
+	text-indent: 0em;
+	margin-left: 20pt;
+}
+
+li {	font: 10pt Verdana,Helvetica,Arial,"Times New Roman",serif;
+	text-align: justify;
+}
+
+li p {
+	margin-left: 4pt;
+	text-align: justify;
+}
+
+#sidebar p {
+	text-align: justify;
+	margin-left: 10pt;
+}
+
+p.lfclass {
+	font: 10pt Verdana,Helvetica,Arial,"Times New Roman",serif;
+	text-align: left;
+	margin-left: 0pt;
+	width: 100%;
+}
+
+/*---Links---*/
+
+a:link {
+	color: rgb(0,33,115);
+	text-decoration: none
+}
+
+a:visited {
+	color: rgb(0,33,115);
+	text-decoration: none
+}
+
+a:active {
+	color: rgb(0,33,115);
+	text-decoration: none
+}
+
+a:hover {
+	color: rgb(0,33,115);
+	text-decoration: underline;
+}
+
+/*---Colors---*/
+
+.caption {	color: rgb(0,33,115); }
+#cred     {	color: rgb(180,0,0); }
+#cgray   {	color: rgb(192,192,192); }
+#corang {	color: rgb(255,128,64); }
+#ccyan  {	color: rgb(0,136,68); }
+#ccyan1 {	color: rgb(0,128,128); }
+
+
+
+/*---Site template---*/
+
+#frame_wrapper {
+	width: 800px;
+	margin: 0 auto;
+}
+
+#frame_wrapper_mobile {
+	margin: 0 auto;
+}
+
+#mobile {
+	text-align: center;
+	color: rgb(255,255,255);
+}
+
+#mer_mobile {
+	text-align: center;
+	font: 12pt Verdana,Helvetica,Arial,"Times New Roman",serif;
+	padding: 10px;
+	color: rgb(0,33,115);
+}
+
+#header_mobile {
+	text-align: center;
+}
+
+#header {
+	height: 156px;
+	background-repeat: no-repeat;
+}
+
+#sidebar {
+	width: 146px;
+	float: left;
+	background: url(../images/templates/default/sidebar.png) rgb(231,239,244) no-repeat;
+	border-width: 0px;
+	border-style: solid;
+	text-indent: 0em;
+	margin-top: 0pt;
+}
+
+#sidebar_mobile {
+	text-align: center;
+}
+
+#wrapper {
+	float: left;
+}
+
+#wrapper_mobile {
+}
+
+#sys_message {
+	width: 654px;
+	border-top: 5px solid rgb(128,33,115);
+	border-bottom: 5px solid rgb(128,33,115);
+	color: rgb(128,33,115);
+	text-indent: 2em;
+	margin-bottom: 10px;
+}
+
+#error	{
+	width: 654px;
+	border-top: 5px solid rgb(180,0,0);
+	border-bottom: 5px solid rgb(180,0,0);
+	color: rgb(180,0,0);
+	text-indent: 2em;
+	margin-bottom: 10px;
+}
+
+#error_mobile	{
+	border-top: 5px solid rgb(180,0,0);
+	border-bottom: 5px solid rgb(180,0,0);
+	color: rgb(180,0,0);
+	text-indent: 2em;
+	margin-bottom: 10px;
+}
+
+#message {
+	width: 654px;
+	border-top: 5px solid rgb(0,33,115);
+	border-bottom: 5px solid rgb(0,33,115);
+	color: rgb(0,33,115);
+	text-indent: 2em;
+	margin-bottom: 10px;
+}
+
+#message_mobile {
+	border-top: 5px solid rgb(0,33,115);
+	border-bottom: 5px solid rgb(0,33,115);
+	color: rgb(0,33,115);
+	text-indent: 2em;
+	margin-bottom: 10px;
+}
+
+#content {
+	width: 654px;
+	word-wrap:break-word;
+	display:inline-block;
+}
+
+#content_mobile {
+	word-wrap:break-word;
+	display:inline-block;
+}
+
+#footer {
+	clear: both; 
+}
+
+#footer_mobile {
+	clear: both; 
+}
+
+/*---Garbage---*/
+
+#bigcapt { 
+	text-align: center;
+	font-size: 16pt;
+	font-family: "Times New Roman",serif
+}
+
+#bigcapt1 { 
+	text-align: left;
+	font-size: 16pt;
+	font-family: "Times New Roman",serif
+}
+
+#centr {	text-align: center; }
+
+hr.lfclass {
+	color: rgb(255,128,64);
+}
+
+#edge {
+	display: block;
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	margin-left: 4pt;
+	text-align: right;
+}
+
+
+#edge2 {
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: rgb(0,33,115);
+	font-size: 7pt; 
+	margin-left: 0pt;
+	font: 24pt Verdana,Helvetica,Arial,"Times New Roman",serif;
+}
+#edge3 {
+	display: block;
+	position: absolute;
+	top: 3px;
+	left: 20px;
+	margin-left: 0pt;
+}
+
+#archtable {
+	border: 0px;
+}
+
+#archtable td {
+	border: solid 1px; 
+	cellpadding: 0px; 
+	cellspacing: 0px;
+}

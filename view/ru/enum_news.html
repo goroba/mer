@@ -1,0 +1,58 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<h1>Новости</h1>
+
+ <p style="font-size: 8pt;">
+	<a href="?cmd=edit_news&action=create">Добавить новость</a>
+</p>
+<p>&nbsp;</p>
+
+<?php $news = $tpl->get('news'); ?>
+<?php foreach ($news as $item) { ?>
+	<h2>
+		<?php echo $item->get('title_ru'); ?>
+	</h2>
+	<?php if ($item->get('text_ru') !== '') { ?>
+		<p>
+			<?php if ($item->get('image') !== '') { ?>
+				<a href="<?php echo $item->get('image'); ?>" target="_blank">
+					<img alt="" src="<?php echo $item->get('image'); ?>" style="float: left; margin-right: 10px;" />
+				</a>
+			<?php } ?>
+		
+			<?php echo $item->get('text_ru'); ?>
+		</p>
+		<p style="text-align: right;">
+			<?php if ($item->get('sign_ru') !== '') { ?>
+				<em><?php echo $item->get('sign_ru'); ?></em>
+			<?php } ?>
+		</p>
+		<p style="text-align: right;">
+			<?php if ($item->get('date') !== '') { ?>
+				<?php echo $item->get('date'); ?>
+			<?php } ?>
+		</p>
+	<?php } ?>
+	<hr />
+	
+	
+	
+	<p style="font-size: 8pt;">
+			<a href="?cmd=edit_news&action=update&id=<?php echo $item->get('id')?>">Редактировать</a> | 
+			<a href="?cmd=move_news&number=<?php echo $item->get('number'); ?>&delta=-1">Вверх</a> | 
+			<a href="?cmd=move_news&number=<?php echo $item->get('number'); ?>&delta=1">Вниз</a> |
+			<a onclick="return confirm('Вы действительно хотите удалить новость? Вся информация будет потеряна.')" href="?cmd=delete_news&id=<?php echo $item->get('id'); ?>">Удалить</a></p>
+	</p>
+<? } ?>
+
+<?php if ($tpl->get('sizeof') > 1) { ?>
+<p><br /><br /><br />
+	<?php for($page=1; $page <= $tpl->get('sizeof'); $page++) { ?>
+		<a href="?cmd=enum_news&page=<?php echo $page; ?>">[<?php echo $page; ?>]	</a>
+	<?php } ?>
+</p>
+<?php } ?>
+
+<p><br /><br /><br /><br /><br />
+	<a href="?cmd=manager">Вернуться на админ-панель</a>
+</p>

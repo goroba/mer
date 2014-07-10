@@ -1,0 +1,174 @@
+body {	font-size: 12pt;
+	font-family: "Times New Roman",serif,Verdana,Helvetica,Arial
+	padding: 5em;
+	border-width: 3em;
+	width:90%;
+	margin-top: 10pt;
+	background-color: rgb(231,239,244);
+	margin-left: 4pt;
+}
+
+body.lfclass {
+	border-width: 0px;
+	border-style: solid;
+	text-indent: 0em;
+	margin-top: 0pt;
+}
+
+p {	font: 10pt Verdana,Helvetica,Arial,"Times New Roman",serif;
+	text-align: left;
+	text-indent: 0em;
+	margin-left: 20pt;
+}
+
+li p {
+	margin-left: 4pt;
+	text-align: justify;
+}
+
+body.rfclass p {
+	text-align: justify;
+}
+
+p.lfclass {
+	font: 10pt Verdana,Helvetica,Arial,"Times New Roman",serif;
+	text-align: left;
+	margin-left: 0pt;
+	width: 100%;
+}
+
+li {	font: 10pt Verdana,Helvetica,Arial,"Times New Roman",serif;
+	text-align: justify;
+}
+
+
+h1 { 	font-family: "Verdana","Arial",verdana; 
+	font-size: 15pt; 
+	font-weight: bold;
+	font-style: small-caps;
+	text-align: left;
+	margin-top: 25pt; 
+	color: rgb(0,33,115);
+	margin-bottom: 15pt;
+}
+
+h2 { 	font-family: "Verdana","Arial",verdana; 
+	font-size: 12pt; 
+	font-weight: bold;
+	font-style: small-caps;
+	text-align: left;
+	color: rgb(0,33,115);
+	margin-top: 5pt; 
+}
+
+h3 {
+	color: rgb(0,33,115);
+	margin-top: 5pt; 
+}
+
+
+/*-----lfclass-----*/
+p.lfclass {
+	
+}
+
+body.lfclass {
+	text-align: left;
+	border-left-width: 0ex;
+	padding-left: 0.5em;
+	margin-left: 0em;
+	background-image: none; 
+	border-style: none
+}
+
+#cred     {	color: rgb(180,0,0); }
+#cgray   {	color: rgb(192,192,192); }
+#corang {	color: rgb(255,128,64); }
+#ccyan  {	color: rgb(0,136,68); }
+#ccyan1 {	color: rgb(0,128,128); }
+
+
+#bigcapt { 
+	text-align: center;
+	font-size: 16pt;
+	font-family: "Times New Roman",serif
+}
+
+#bigcapt1 { 
+	text-align: left;
+	font-size: 16pt;
+	font-family: "Times New Roman",serif
+}
+
+#centr {	text-align: center; }
+
+a:link {
+	color: rgb(0,33,115);
+	text-decoration: none
+}
+
+a:visited {
+	color: rgb(0,33,115);
+	text-decoration: none
+}
+
+a:active {
+	color: rgb(0,33,115);
+	text-decoration: none
+}
+
+a:hover {
+	color: rgb(0,33,115);
+	text-decoration: underline;
+}
+
+hr.lfclass {
+	color: rgb(255,128,64);
+}
+
+#edge {
+	display: block;
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	margin-left: 4pt;
+	text-align: right;
+}
+
+
+#edge1 {
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	color: rgb(0,33,115);
+	font-size: 7pt; 
+	margin-left: 4pt;
+}
+
+#edge2 {
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: rgb(0,33,115);
+	font-size: 7pt; 
+	margin-left: 0pt;
+	font: 24pt Verdana,Helvetica,Arial,"Times New Roman",serif;
+}
+#edge3 {
+	display: block;
+	position: absolute;
+	top: 3px;
+	left: 20px;
+	margin-left: 0pt;
+}
+
+#archtable {
+	border: 0px;
+}
+
+#archtable td {
+	border: solid 1px; 
+	cellpadding: 0px; 
+	cellspacing: 0px;
+}

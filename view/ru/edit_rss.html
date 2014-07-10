@@ -1,0 +1,87 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<h1>Редактирование новости</h1>
+
+<form enctype="multipart/form-data" action="?cmd=add_rss" method="post">
+
+	<p>
+	<label for="header_ua">
+		Назва новини
+	</label><br />
+	<input name="header_ua" id="header_ua" required="required" type="text" size="90" value="<?php echo $tpl->get('header_ua'); ?>" />
+	</p>
+	<p>
+	<label for="text_ua">
+		Текст новини
+	</label><br />
+	<textarea rows="5" cols="68" name="text_ua" id="text_ua"><?php echo $tpl->get('text_ua'); ?></textarea>
+	</p>
+	<p>
+	<label for="header_en">
+		News caption
+	</label><br />
+	<input name="header_en" id="header_en" required="required" type="text" size="90" value="<?php echo $tpl->get('header_en'); ?>" />
+	</p>
+	<p>
+	<label for="text_en">
+		News text
+	</label><br />
+	<textarea rows="5" cols="68" name="text_en" id="text_en"><?php echo $tpl->get('text_en'); ?></textarea>
+	</p>
+	<p>
+	<label for="header_ru">
+		Название новости
+	</label><br />
+	<input name="header_ru" id="header_ru" required="required" type="text" size="90" value="<?php echo $tpl->get('header_ru'); ?>" />
+	</p>
+	<p>
+	<label for="text_ru">
+		Текст новости
+	</label><br />
+	<textarea rows="5" cols="68" name="text_ru" id="text_ru"><?php echo $tpl->get('text_ru'); ?></textarea>
+	</p>
+	<p>
+	<label for="file_or_link">
+		Ссылка на:
+	</label>
+	<br />
+	<input name="file_or_link" id="file_or_link1" value="file" type="radio" <?php if ($tpl->get('file') !== '') echo "checked=\"checked\""; ?> />
+		Файл<br />
+	<input name="file_or_link" id="file_or_link" value="link" type="radio" <?php if ($tpl->get('link') !== '') echo "checked=\"checked\""; ?> />
+		Страницу в интернете
+	</p>
+	
+	<div id="rss_file">
+		<p>
+			<label for="_file">
+				<?php if (is_null($tpl->get('file'))) echo "Ссылка на файл"; ?>
+				<?php if (!is_null($tpl->get('file'))) echo "Ссылка на новый файл (старый будет удален)"; ?>
+			</label><br />
+			<input name="_file" id="_file" type="file" />
+		</p>
+	</div>
+	
+	<div id="rss_link">
+		<p>
+			<label for="_link">
+				Ссылка на новость
+			</label><br />
+			<input name="_link" id="_link" type="text" size="90" value="<?php echo $tpl->get('link'); ?>" />
+		</p>
+	</div>
+	
+	
+	<p>
+	<input value="<?php if ($tpl->get('action') == 'create') echo 'Добавить новость'; else echo 'Принять изменения'; ?>" type="submit">
+	
+	<input name="action"  id="action"    type="hidden" value="<?php echo $tpl->get('action'); ?>" />
+	<input name="id"      id="id"        type="hidden" value="<?php echo $tpl->get('id'); ?>" />
+	<input name="number"  id="number"    type="hidden" value="<?php echo $tpl->get('number'); ?>" />
+	<input name="file"    id="file"      type="hidden" value="<?php echo $tpl->get('file'); ?>" />
+</form>
+
+<p><br /><br /><br /><br /><br />
+	<a href="?cmd=rss">Вернуться к ленте новостей</a>
+</p>
+
+<script type="text/javascript" src="js/edit_rss.js"></script>

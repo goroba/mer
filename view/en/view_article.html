@@ -1,0 +1,44 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<p>&nbsp;</p>
+<p><strong><?php echo $tpl->get('authors_en');?></strong><br />
+<span class="caption"><strong><?php echo $tpl->get('caption_en');?></strong></span><br />
+<em><?php echo $tpl->get('original_language_' . $tpl->get('language')); ?></em></p>
+
+<p>
+	<?php echo $tpl->get('annotation_en');?>
+</p>
+
+<p>
+	<strong>Key words</strong>:
+	<?php echo $tpl->get('keywords_en');?>.
+</p>
+
+<p>
+	Placed in <?php echo $tpl->get('issue_number');?>.
+</p>
+
+<?php if ($tpl->get('affiliations_en')) { ?>	
+	<p>
+		<strong>Affiliations</strong>:
+		<?php echo $tpl->get('affiliations_en'); ?>
+	</p>
+<?php } ?>
+
+<?php if ($tpl->get('access')) { ?>	
+	<p>
+		<strong>Article text</strong>:
+		<a href="<?php echo $tpl->get('link'); ?>">download</a>.
+	</p>
+<?php } ?>
+
+<?php if ($tpl->get('link_en') && $tpl->get('access')) { ?>	
+	<p>
+		<strong>Translated into English version</strong>:
+		<a href="<?php echo $tpl->get('link_en'); ?>">download</a>.
+	</p>
+<?php } ?>
+
+<p><br /><br /><br /><br /><br />
+	<a href="?cmd=view_issue&issue_id=<?php echo $tpl->get('issue_id'); ?>">Back to browse contents</a>
+</p>

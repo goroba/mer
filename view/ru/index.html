@@ -1,0 +1,134 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD//xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title><?php echo $tpl->get('title_ru'); ?></title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<link rel="StyleSheet" type="text/css" href="css/index.css" />
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.js"></script> 
+</head>
+<body>
+
+<div id="frame_wrapper">	
+	
+	<?php $aaa = \mer\base\SessionRegistry::instance()->getValue('mobile_enable'); if (isset($aaa)) {?>
+	<div id="mobile">
+		<a href="index.php?cmd=enable_mobile">Включить мобильный сайт</a>
+	</div>
+	<?php } ?>
+	
+	<div id="header" style="background: url(images/templates/default/top_ru.png)">
+		<p style="text-align: right; font-size: 8pt;">
+				<br /><br /><br /><br /><br /><br />
+				<a href="index.php?<?php echo $tpl->get('url_ua'); ?>">Українською</a><br /><br />
+				<a href="index.php?<?php echo $tpl->get('url_en'); ?>">English</a><br /><br />
+				<a href="index.php?<?php echo $tpl->get('url_ru'); ?>"><strong>Русский</strong></a>
+		</p>
+	</div>
+	
+	<div id="sidebar">
+		<p>
+		<strong>
+		<a href="?cmd=default">О нас</a><br /><br />
+		<a href="?cmd=news">Новости</a><br /><br />
+		<a href="?cmd=edit">Редакционная коллегия</a><br /><br />
+		<a href="?cmd=arch">Архив номеров</a><br /><br />
+		<a href="?cmd=founders">Учредители</a><br /><br />
+		<a href="?cmd=contacts">Контакты</a><br /><br />
+		<a href="?cmd=review">Рецензенту</a><br /><br />
+		<a href="?cmd=author">Автору</a><br /><br />
+		<a href="?cmd=search">Поиск</a><br /><br />
+		<br />
+		<a href="?cmd=view_rss">Лента новостей</a><br /><br />
+		</strong>
+		</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>		
+		<?php $is_logged = $tpl->get('__is_logged');
+		
+			if (!isset($is_logged) || $is_logged == false)
+			{ ?>
+			<form method="post" action="?cmd=login" enctype="multipart/form-data" style="color: rgb(0,33,115); margin-left: 10pt;">
+				<label for="login"><strong>Пользователь</strong></label><br />
+				<input type="text" required id="login" name="login" size="10" /><br />
+				<label for="password"><strong>Пароль</strong></label><br />
+				<input type="password" required id="password" name="password" size="10" /><br />
+
+				<input type="checkbox" id="memorize" name="memorize" checked="checked" />
+				<label for="memorize">Запомнить?</label><br />
+							
+				<a href="?cmd=registration">Регистрация</a><br />
+				<input type="submit" value="Войти" name="submit" />
+			</form>
+		<?php } else if ($is_logged == true) {
+					$login = $tpl->get('__login');
+				?>
+					
+			<form method="post" action="?cmd=logout" enctype="multipart/form-data" style="color: rgb(0,33,115); margin-left: 10pt;">
+					<strong>Пользователь:</strong>  [&nbsp;<?php echo $login; ?>&nbsp;]<br />
+					<?php if ($tpl->get('__status') > 2){ ?>
+						<a href ="?cmd=manager&lang=ru">Панель менеджера</a><br />
+					<? } ?><br />
+					<input type="submit" value="Выйти" name="submit" />
+			</form>					
+		<?php } ?>
+		<p>&nbsp;</p>
+	</div>
+		
+	<div id="wrapper">
+		<?php 
+			$message = \mer\base\SessionRegistry::instance()->popSysMessage();
+			if (MER_TESTMODE)
+			{
+			if (isset($message) && !is_null($message))
+			{
+		?>
+		<div id="sys_message"><?php echo $message; ?></div>
+		<?php unset($message);} }?>
+
+		<?php 
+			$message = \mer\base\SessionRegistry::instance()->popError();
+			if (isset($message) && !is_null($message))
+			{
+		?>		
+		<div id="error"><?php echo $message; ?></div>
+		<?php unset($message);} ?>
+		
+		<?php 
+			$message = \mer\base\SessionRegistry::instance()->popMessage();
+			if (isset($message) && !is_null($message))
+			{
+		?>		
+		<div id="message"><?php echo $message; ?></div>
+		<?php unset($message);} ?>
+		
+		<div id="content">
+			<?php if ($cmd_result > 0) echo "$view"; ?>
+		</div>
+		
+	</div>
+
+	<div id="footer">
+		<p style="font-size: 8pt; color: rgb(0,33,115); margin-left: 4pt;">
+			<strong>
+			Авторы идеи:<br />Сабадаш&nbsp;В.В., Деревянко&nbsp;Ю.Н., Лукаш&nbsp;О.А.
+			<br /><br />
+			Дизайн:<br />
+			Горобченко&nbsp;Д.В., Лебедева&nbsp;Н.В.
+			<br /><br />
+			Разработка:<br />
+			Горобченко&nbsp;Д.В.
+			</strong>
+		</p>
+	</div>
+	
+	
+</div>
+	
+</body>
+</html>

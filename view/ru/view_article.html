@@ -1,0 +1,44 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<p>&nbsp;</p>
+<p><strong><?php echo $tpl->get('authors_ru');?></strong><br />
+<span class="caption"><strong><?php echo $tpl->get('caption_ru');?></strong></span><br />
+<em><?php echo $tpl->get('original_language_' . $tpl->get('language')); ?></em></p>
+
+<p>
+	<?php echo $tpl->get('annotation_ru');?>
+</p>
+
+<p>
+	<strong>Ключевые слова</strong>:
+	<?php echo $tpl->get('keywords_ru');?>.
+</p>
+
+<p>
+	Размещена в <?php echo $tpl->get('issue_number');?>.
+</p>
+
+<?php if ($tpl->get('affiliations_ru')) { ?>	
+	<p>
+		<strong>Информация про автора(ов)</strong>:
+		<?php echo $tpl->get('affiliations_ru'); ?>
+	</p>
+<?php } ?>
+
+<?php if ($tpl->get('access')) { ?>	
+	<p>
+		<strong>Текст статьи</strong>:
+		<a href="<?php echo $tpl->get('link'); ?>">загрузить</a>.
+	</p>
+<?php } ?>
+	
+<?php if ($tpl->get('link_ru') && $tpl->get('access')) { ?>	
+	<p>
+		<strong>Перевод оригинала статьи на русский язык</strong>:
+		<a href="<?php echo $tpl->get('link_ru'); ?>">загрузить</a>.
+	</p>
+<?php } ?>
+
+<p><br /><br /><br /><br /><br />
+	<a href="?cmd=view_issue&issue_id=<?php echo $tpl->get('issue_id'); ?>">Вернуться к просмотру номера</a>
+</p>

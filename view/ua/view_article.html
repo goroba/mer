@@ -1,0 +1,44 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<p>&nbsp;</p>
+<p><strong><?php echo $tpl->get('authors_ua');?></strong><br />
+<span class="caption"><strong><?php echo $tpl->get('caption_ua');?></strong></span><br />
+<em><?php echo $tpl->get('original_language_' . $tpl->get('language')); ?></em></p>
+
+<p>
+	<?php echo $tpl->get('annotation_ua');?>
+</p>
+
+<p>
+	<strong>Ключові слова</strong>:
+	<?php echo $tpl->get('keywords_ua');?>.
+</p>
+
+<p>
+	Розміщена в <?php echo $tpl->get('issue_number');?>.
+</p>
+
+<?php if ($tpl->get('affiliations_ua')) { ?>	
+	<p>
+		<strong>Інформація про автора(ів)</strong>:
+		<?php echo $tpl->get('affiliations_ua'); ?>
+	</p>
+<?php } ?>
+
+<?php if ($tpl->get('access')) { ?>	
+	<p>
+		<strong>Текст статті</strong>:
+		<a href="<?php echo $tpl->get('link'); ?>">завантажити</a>.
+	</p>
+<?php } ?>
+
+<?php if ($tpl->get('link_ua') && $tpl->get('access')) { ?>	
+	<p>
+		<strong>Переклад оригіналу українською мовою</strong>:
+		<a href="<?php echo $tpl->get('link_ua'); ?>">завантажити</a>.
+	</p>
+<?php } ?>
+
+<p><br /><br /><br /><br /><br />
+	<a href="?cmd=view_issue&issue_id=<?php echo $tpl->get('issue_id'); ?>">Повернутися до перегляду змісту</a>
+</p>

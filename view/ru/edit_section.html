@@ -1,0 +1,41 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<h1>Редактировать раздел</h1>
+
+<form action="?cmd=add_section" method="post">
+		
+	<p>
+	<label for="caption_ua">
+		Назва українською<br />
+	</label>
+	<input name="caption_ua" id="caption_ua" required="required" type="text" size="90" value="<?php echo $tpl->get('caption_ua'); ?>" />
+	</p>
+	
+	<p>
+	<label for="caption_en">
+		Caption in English<br />
+	</label>
+       <input name="caption_en" id="caption_en" required="required" type="text" size="90" value="<?php echo $tpl->get('caption_en'); ?>" />
+	</p>
+	
+	<p>	
+	<label for="caption_ru">
+		Название на русском<br />
+	</label>
+	<input name="caption_ru" id="caption_ru" required="required" type="text" size="90" value="<?php echo $tpl->get('caption_ru'); ?>" />
+	</p>
+	
+	<input name="section_id" id="section_id" required="required" type="hidden" value="<?php echo $tpl->get('section_id'); ?>" />		
+	<input name="number"     id="number"     required="required" type="hidden" value="<?php echo $tpl->get('number'); ?>" />		
+	<input name="issue_id"   id="issue_id"   required="required" type="hidden" value="<?php echo $tpl->get('issue_id'); ?>" />		
+	<input name="level"      id="level"      required="required" type="hidden" value="<?php echo $tpl->get('level'); ?>" />		
+	
+	<p>	
+	<input value="Добавить" type="submit">
+	</p>
+    </form>
+
+
+ <p>
+	<a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Вернуться к редактированию номера</a>
+</p>

@@ -1,0 +1,13 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+<h1>Archive</h1>
+
+
+<?php $year = 0; ?>
+<?php foreach ($tpl->get('issues') as $issue) { ?>
+	<?php if ($issue['year'] != $year) { $year = $issue['year']; echo '</p><h2>', $year, '</h2><p>'; } ?>
+	
+
+		<a href="?cmd=view_issue&issue_id=<?php echo $issue['id']?>"><?php echo "№" . $issue['issue']; if (!empty($issue['suffix'])) echo "'" . $issue['suffix']; echo ', ' . $issue['year']; ?></a>
+		<br />
+
+<?php } ?>

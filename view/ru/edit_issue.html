@@ -1,0 +1,67 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<h1>Редактировать номер <?php echo $tpl->get('issue_number');?></h1>
+ <p style="font-size: 8pt;">
+	<a href="?cmd=access_issue&access=open&issue_id=<?php echo $tpl->get('issue_id'); ?>">Открыть доступ к статьям</a>
+	|
+	<a href="?cmd=access_issue&access=close&issue_id=<?php echo $tpl->get('issue_id'); ?>">Закрыть доступ к статьям</a>
+	|
+	<a href="?cmd=nbuv_issue&issue_id=<?php echo $tpl->get('issue_id'); ?>">Создать архив nbuv</a>
+ </p>
+ <p>&nbsp;</p>
+ <p style="font-size: 8pt;">
+	<a href="?cmd=edit_section&level=1&issue_id=<?php echo $tpl->get('issue_id'); ?>">Добавить часть</a>
+|
+	<a href="?cmd=edit_section&level=2&issue_id=<?php echo $tpl->get('issue_id'); ?>">Добавить раздел</a>
+|
+	<a href="?cmd=edit_article&issue_id=<?php echo $tpl->get('issue_id'); ?>&action=create">Добавить статью</a>
+</p>
+<p>&nbsp;</p>
+
+
+<?php $content = $tpl->get('content'); ?>
+<?php foreach ($content as $item) { ?>
+	
+	<?php if (($item instanceof \mer\domain\Section) && ($item->get('level') == 1))  { ?>
+		<h2><a href="?cmd=edit_section&section_id=<?php echo $item->get('id')?>"><?php echo $item->get('caption_ru'); ?></a></h2>
+		<p style="font-size: 8pt;">
+			<a href="?cmd=edit_section&section_id=<?php echo $item->get('id'); ?>">Редактировать</a> | 
+			<a href="?cmd=move_content&issue_id=<?php echo $item->get('issue_id'); ?>&number=<?php echo $item->get('number'); ?>&delta=-1">Вверх</a> | 
+			<a href="?cmd=move_content&issue_id=<?php echo $item->get('issue_id'); ?>&number=<?php echo $item->get('number'); ?>&delta=1">Вниз</a> |
+			<a onclick="return confirm('Вы действительно хотите удалить часть? Вся информация будет потеряна.')" href="?cmd=delete_section&issue_id=<?php echo $item->get('issue_id'); ?>&section_id=<?php echo $item->get('id'); ?>">Удалить</a></p>
+	<?php } ?>
+	
+	<?php if (($item instanceof \mer\domain\Section) && ($item->get('level') == 2))  { ?>
+		<h3><a href="?cmd=edit_section&section_id=<?php echo $item->get('id')?>"><?php echo $item->get('caption_ru'); ?></a></h3>
+		<p style="font-size: 8pt;">
+			<a href="?cmd=edit_section&section_id=<?php echo $item->get('id')?>">Редактировать</a> | 
+			<a href="?cmd=move_content&issue_id=<?php echo $item->get('issue_id'); ?>&number=<?php echo $item->get('number'); ?>&delta=-1">Вверх</a> | 
+			<a href="?cmd=move_content&issue_id=<?php echo $item->get('issue_id'); ?>&number=<?php echo $item->get('number'); ?>&delta=1">Вниз</a> |
+			<a onclick="return confirm('Вы действительно хотите удалить раздел? Вся информация будет потеряна.')" href="?cmd=delete_section&issue_id=<?php echo $item->get('issue_id'); ?>&section_id=<?php echo $item->get('id'); ?>">Удалить</a></p>
+	<?php } ?>
+	
+	<?php if ($item instanceof \mer\domain\Article)  { ?>
+		<p>
+			<strong><em>
+				<?php echo $item->get('authors_ru'); ?>
+			</em></strong><br />
+			<strong>
+				<a href="?cmd=edit_article&article_id=<?php echo $item->get('id')?>&action=update"><?php echo $item->get('caption_ru'); ?></a>
+			</strong><br />
+			<em>
+				<?php echo $tpl->get('original_language_' . $item->get('language')); ?>
+			</em>
+		</p>
+		<p style="font-size: 8pt;">
+			<a href="?cmd=edit_article&article_id=<?php echo $item->get('id')?>&action=update">Редактировать</a> | 
+			<a href="?cmd=move_content&issue_id=<?php echo $item->get('issue_id'); ?>&number=<?php echo $item->get('number'); ?>&delta=-1">Вверх</a> | 
+			<a href="?cmd=move_content&issue_id=<?php echo $item->get('issue_id'); ?>&number=<?php echo $item->get('number'); ?>&delta=1">Вниз</a> |
+			<a onclick="return confirm('Вы действительно хотите удалить статью? Вся информация будет потеряна.')" href="?cmd=delete_article&issue_id=<?php echo $item->get('issue_id'); ?>&article_id=<?php echo $item->get('id')?>">Удалить</a></p>
+	<?php } ?>
+
+<?php } ?>
+
+
+<p><br /><br /><br /><br /><br />
+	<a href="?cmd=manager">Вернуться на админ-панель</a>
+</p>

@@ -1,0 +1,31 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<h1>Лента новостей</h1>
+
+<?php $rss = $tpl->get('rss'); ?>
+<?php foreach ($rss as $item) { ?>
+	<h2>
+		<?php if ($item->get('link') !== '') { ?>
+		<a href="<?php echo $item->get('link'); ?>"  target="_blank">
+		<? } ?>
+		<?php if ($item->get('file') !== '') { ?>
+		<a href="<?php echo $item->get('file'); ?>"  target="_blank">
+		<? } ?>		
+		<?php echo $item->get('header_ru'); ?>
+		</a>
+	</h2>
+	<?php if ($item->get('text_ru') !== '') { ?>
+		<p>
+			<?php echo $item->get('text_ru'); ?>
+		</p>
+	<?php } ?>
+
+<? } ?>
+
+<?php if ($tpl->get('sizeof') > 1) { ?>
+<p><br /><br /><br />
+	<?php for($page=1; $page <= $tpl->get('sizeof'); $page++) { ?>
+		<a href="?cmd=view_rss&page=<?php echo $page; ?>">[<?php echo $page; ?>]	</a>
+	<?php } ?>
+</p>
+<?php } ?>

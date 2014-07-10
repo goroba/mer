@@ -1,0 +1,40 @@
+<h1>Создать номер</h1>
+
+	 <form action="?cmd=add_issue" method="post" novalidate="">
+
+		<p>
+		<label for="year">
+			Год выпуска:
+		</label>
+        <input name="year" id="year" required="required" type="text" \>
+        </p>
+		<p>
+		<label for="issue">
+            Номер
+        </label>
+        <input name="issue" id="issue" required="required" type="text" \>
+		</p>
+		<p>
+		<label for="suffix_util">
+			Использовать суффикс
+        </label>
+		<input name="suffix_util" id="suffix_util" value="1" type="radio" \>
+			Да
+		<input name="suffix_util" id="suffix_util" value="0" type="radio" checked="checked" \>
+			Нет
+		</p>
+		<p>
+		<label for="suffix">
+			Суффикс
+		</label>
+        <input name="suffix" id="suffix" type="text" \>
+		</p>
+		
+		<p>
+		<input value="Создать номер" type="submit" \>
+		</p>
+     </form>
+	 
+	 <p>
+		<a href="?cmd=manager">Вернуться на админ-панель</a>
+	</p>

@@ -1,0 +1,90 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD//xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title><?php echo $tpl->get('title_ru'); ?></title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<link rel="StyleSheet" type="text/css" href="css/index.css" />
+	
+	<script type="text/javascript" src="js/jquery-1.10.2.js"></script> 
+</head>
+<body>
+
+<div id="frame_wrapper_mobile">	
+	
+	<div id="mobile">
+		<em><a href="index.php?cmd=disable_mobile">Отключить мобильный сайт</a></em><hr />
+	</div>
+	
+	<div id="header_mobile">
+		<a href="index.php?<?php echo $tpl->get('url_ua'); ?>">Українською</a> |
+		<a href="index.php?<?php echo $tpl->get('url_en'); ?>">English</a> |
+		<a href="index.php?<?php echo $tpl->get('url_ru'); ?>"><strong>Русский</strong></a><hr />
+	</div>
+
+	<div id="mer_mobile">
+		<strong>Международный научный журнал "Механизм регулирования экономики" </strong><hr />
+	</div>	
+	
+	<div id="sidebar_mobile">
+		<strong>
+		<a href="?cmd=default">О нас</a> |
+		<a href="?cmd=news">Новости</a> |
+		<a href="?cmd=edit">Редакционная коллегия</a> |
+		<a href="?cmd=arch">Архив номеров</a> |
+		<a href="?cmd=founders">Учредители</a> |
+		<a href="?cmd=contacts">Контакты</a> |
+		<a href="?cmd=review">Рецензенту</a> |
+		<a href="?cmd=author">Автору</a> |
+		<a href="?cmd=search">Поиск</a> |
+		<a href="?cmd=view_rss">Лента новостей</a>
+		</strong><hr />
+	</div>
+		
+	<div id="wrapper_mobile">
+		<?php 
+			$message = \mer\base\SessionRegistry::instance()->popError();
+			if (isset($message) && !is_null($message))
+			{
+		?>		
+		<div id="error_mobile"><?php echo $message; ?></div>
+		<?php unset($message);} ?>
+		
+		<?php 
+			$message = \mer\base\SessionRegistry::instance()->popMessage();
+			if (isset($message) && !is_null($message))
+			{
+		?>		
+		<div id="message_mobile"><?php echo $message; ?></div>
+		<?php unset($message);} ?>
+		
+		<div id="content_mobile">
+			<?php if ($cmd_result > 0) echo "$view"; ?>
+		</div>
+		
+		<hr />
+		
+	</div>
+
+	<div id="footer_mobile">
+		<p style="font-size: 8pt; color: rgb(0,33,115); margin-left: 4pt;">
+			<strong>
+			Авторы идеи:<br />Сабадаш&nbsp;В.В., Деревянко&nbsp;Ю.Н., Лукаш&nbsp;О.А.
+			<br /><br />
+			Дизайн:<br />
+			Горобченко&nbsp;Д.В., Лебедева&nbsp;Н.В.
+			<br /><br />
+			Разработка:<br />
+			Горобченко&nbsp;Д.В.
+			</strong>
+		</p>
+	</div>
+	
+	
+</div>
+	
+</body>
+</html>

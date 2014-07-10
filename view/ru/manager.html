@@ -1,0 +1,35 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+<h1>Административная часть (менеджеры и администратор)</h1>
+
+<p>
+<ul>
+	<li>
+		<a href="?cmd=enum_news">
+			Архив новостей
+		</a>
+	</li>
+	<li>
+		<a href="?cmd=rss">
+			Архив ленты новостей
+		</a>
+	</li>
+
+
+<li>Архив номеров</li>
+	<ul>
+	<?php foreach ($tpl->get('issues') as $issue) { ?>
+		<li>
+			<a href="?cmd=edit_issue&issue_id=<?php echo $issue['id']?>">№<?php echo $issue['issue']; if (!empty($issue['suffix'])) echo "'" . $issue['suffix']; echo ', ', $issue['year'];?></a>
+			( <a href="?cmd=edit_issue&issue_id=<?php echo $issue['id']?>">Редактировать</a>
+			| <a onclick="return confirm('Вы действительно хотите удалить номер журнала? Вся информация будет потеряна.')" href="?cmd=delete_issue&issue_id=<?php echo $issue['id'];?>">Удалить</a>)
+		</li>
+	<?php } ?>
+		<li>
+			<a href="?cmd=new_issue">Новый номер</a>
+		</li>	
+	</ul>
+	
+</ul>
+</p>
+
+

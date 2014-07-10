@@ -1,0 +1,96 @@
+<?php $tpl = \mer\base\Templater::instance(); ?>
+
+<h1>Редактировать новость</h1>
+
+<form enctype="multipart/form-data" action="?cmd=add_news" method="post" novalidate="">
+
+	<p>
+	<label for="field2">
+		Изображение (только в формате png.)
+	</label><br />
+	<input name="_image" id="field2" required="required" type="file" />
+	</p>
+	
+	
+	<p>
+	<label for="title_ua">
+		Назва новини
+	</label><br />
+	<input name="title_ua" id="title_ua" required="required" type="text" size="90" value="<?php echo $tpl->get('title_ua'); ?>" />
+	</p>
+
+	<p>
+	<label for="text_ua">
+		Текст новини
+	</label><br />
+	<textarea rows="5" cols="68" name="text_ua" id="text_ua" required="required"><?php echo $tpl->get('text_ua'); ?></textarea>
+	</p>
+
+	<p>
+	<label for="sign_ua">
+		Підпис
+	</label><br />
+	<input name="sign_ua" id="sign_ua" required="required" type="text" size="90" value="<?php echo $tpl->get('sign_ua'); ?>" />
+	</p>
+
+	<p>&nbsp;</p>
+	<p>
+	<label for="title_en">
+		Caption
+	</label><br />
+	<input name="title_en" id="title_en" required="required" type="text" size="90" value="<?php echo $tpl->get('title_en'); ?>" />
+	</p>
+
+	<p>
+	<label for="text_en">
+		Text
+	</label><br />
+	<textarea rows="5" cols="68" name="text_en" id="text_en" required="required"><?php echo $tpl->get('text_en'); ?></textarea>
+	</p>
+
+	<p>
+	<label for="sign_en">
+		Sign
+	</label><br />
+	<input name="sign_en" id="sign_en" required="required" type="text" size="90" value="<?php echo $tpl->get('sign_en'); ?>" />
+	</p>
+	
+	<p>&nbsp;</p>
+	<p>
+	<label for="title_ru">
+		Название новости
+	</label><br />
+	<input name="title_ru" id="title_ru" required="required" type="text" size="90" value="<?php echo $tpl->get('title_ru'); ?>" />
+	</p>
+
+	<p>
+	<label for="text_ru">
+		Текст новости
+	</label><br />
+	<textarea rows="5" cols="68" name="text_ru" id="text_ru" required="required"><?php echo $tpl->get('text_ru'); ?></textarea>
+	</p>
+
+	<p>
+	<label for="sign_ru">
+		Подпись
+	</label><br />
+	<input name="sign_ru" id="sign_ru" required="required" type="text" size="90" value="<?php echo $tpl->get('sign_ru'); ?>" /> 
+	</p>
+	
+	<p>
+	<input value="<?php if ($tpl->get('action') == 'update') echo 'Принять изменения'; else echo 'Добавить новость'; ?>" type="submit">
+	</p>
+
+	<p>
+	<input name="action"  id="action"    type="hidden" value="<?php echo $tpl->get('action'); ?>" />
+	<input name="id"      id="id"        type="hidden" value="<?php echo $tpl->get('id'); ?>" />
+	</p>
+	<p>
+	<input name="number"  id="number"    type="hidden" value="<?php echo $tpl->get('number'); ?>" />
+	<input name="image"   id="image"     type="hidden" value="<?php echo $tpl->get('image'); ?>" />
+	</p>
+</form>
+
+ <p>
+	<a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Вернуться к редактированию новостей</a>
+</p>
